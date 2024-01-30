@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhijeet's Portfolio</title>
+    <title>Portfolio</title>
     <style>
 
         * {
@@ -17,7 +17,8 @@
         }
 
         body {
-            font-family: 'Montserrat Alternates', sans-serif;
+           
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
         :root {
@@ -43,48 +44,6 @@
         }
 
      
-
-        @media (max-width: 750px) {
-            
-            nav .checkbox {
-                display: block;
-            }
-
-            ul {
-                position: absolute;
-                width: 100%;
-                height: calc(100vh - 85px);
-                left: -100%;
-                top: 85px;
-                background-color: var(--extra-light);
-                flex-direction: column;
-                justify-content: center;
-                gap: 3rem;
-            }
-
-            nav #check:checked ~ ul {
-                left: 0;
-            }
-
-            ul li a {
-                font-size: 1.25rem;
-            }
-
-            .section_content {
-                padding: 10rem 1rem 5rem 1rem;
-                text-align: center;
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            .image {
-                grid-area: 1/1/2/2;
-            }
-
-            .action__btns {
-                margin: auto;
-            }
-        }
-
 .nav_content {
     max-width: var(--max-width);
     margin: auto;
@@ -113,11 +72,6 @@ nav input{
     display: none;
 }
 
-nav .checkbox i{
-    font-size: 32px;
-    color: var(--primary-color);
-    cursor: pointer;
-}
 
 ul {
   
@@ -141,7 +95,7 @@ ul li a {
   text-align: center;
   line-height: 40px; 
   background: var(--primary-color-dark);
-  border-radius: 20px; 
+  border-radius: 10px; 
   font-size: 20px; 
   color: white;
   transition: .5s;
@@ -169,7 +123,7 @@ ul li a::before {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px; 
+  border-radius: 10px; 
   background: greenyellow;
   transition: .5s;
   transform: scale(.9);
@@ -218,13 +172,13 @@ ul li a:hover {
 
 .subtitle {
     letter-spacing: 2px;
-    color: var(--text-light);
+    color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 8px;
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 3rem;
     font-weight: 400;
     margin-bottom: 16px;
@@ -297,109 +251,6 @@ ul li a:hover {
   }
   
 
-@media (width < 750px) {
-    nav .checkbox {
-      display: block;
-    }
-  
-    ul {
-      position: absolute;
-      width: 100%;
-      height: calc(100vh - 85px);
-      left: -100%;
-      top: 85px;
-      background-color: var(--extra-light);
-      flex-direction: column;
-      justify-content: center;
-      gap: 3rem;
-    }
-  
-    nav #check:checked ~ ul {
-      left: 0;
-    }
-  
-    ul li a {
-      font-size: 1.25rem;
-    }
-
-    .section_content {
-        padding: 10rem 1rem 5rem 1rem;
-        text-align: center;
-        grid-template-columns: repeat(1, 1fr);
-      }
-    
-      .image {
-        grid-area: 1/1/2/2;
-      }
-    
-      .action__btns {
-        margin: auto;
-      }
-    }
-
-.Contact_title{
-      text-align: center;
-}
-
-.contact h2{
-  margin-top: -1rem;
-  text-align: center;
-  font-size: 2.5rem;
-  color: var(--text-dark);
-}
-
-.contact form{
-  height: 100%;
-  max-width: 70rem;
-  margin: 1rem auto;
-  text-align: center;
-  margin-bottom: 6rem;
-}
-
-.contact form .input_box{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.contact form .input_box input,
-.contact form textarea{
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 1rem;
-  color: var(--text-light);
-  background: #ffffff;
-  border-radius: .8rem;
-  margin: .7rem 0;
-  box-shadow: 0 .1rem .5rem var(--text-light);
-  border: none;
-  outline: none;
-  transition: 0.3s ease;
-}
-
-.contact form .input_box input:focus,
-.contact form textarea:focus {
-  box-shadow: 0px 0px 2px 2px var(--primary-color-dark);
-}
-
-.contact form .input_box input{
-  width: 49%;
-}
-
-.contact form textarea{
-  resize: none;
-}
-
-.contact form .action_btns button{
-  margin-top: 30px;
-  margin-bottom: -20px;
-  transition: .3s ease;
-}
-
-.contact form .action_btns button:hover{
-  background-color: #ffffff;
-    color: var(--primary-color);
-}
 
 .service_links {
   width: var(--max-width);
@@ -420,9 +271,7 @@ ul li a:hover {
     margin-bottom: 16px;
 }
 
-.text{
-  color: rebeccapurple;
-}
+
 
 .box {
   position: relative;
@@ -509,7 +358,7 @@ ul li a:hover {
                 </div>
             </div>
             <div class="image">
-                <img src="PicsArt_10-31-10.54.58.jpg" alt="">
+                <img src="34854.png" alt="">
             </div>
         </div>
     </section> <br> <br>
@@ -517,23 +366,23 @@ ul li a:hover {
     <section id="project">
         <div class="section_content">
             <div class="content">
-        <h2 class="heading">My <span style="color: #666363;">Projects!</span></h2>
+        <h2 class="heading">My <span style="color: var(--primary-color)">Projects!</span></h2>
         <div class="service_links">
             <div class="box">
                 <img src="landing.png" alt="">
                 <div class="text">
-                    <a href="/01 landing/index.html" target="_blank"><Span style="color: var(--primary-color);">Landing Page</Span></a>
+                    <a href="/01 landing/index.html" target="_blank"><Span style="color: whitesmoke; font-size: 30px;">Landing Page</Span></a>
                 </div>
             </div>
             <div class="box">
                 <img src="tictac.png" alt="">
                 <div class="text">
-                    <a href="/03 tictactoe/tictactoe.html" target="_blank">  <Span style="color:var(--primary-color) ;">Tic-Tac-Toe</Span></a>
+                    <a href="/03 tictactoe/tictactoe.html" target="_blank">  <Span style="color: whitesmoke;  font-size: 25px; text-align: ;">Tic-Tac-Toe</Span></a>
                 </div>
             </div><div class="box">
                 <img src="stopwatch.png" alt="">
                 <div class="text">
-                    <a href="/02 Stopwatch/stop.html" target="_blank"><Span style="color:var(--primary-color) ;">StopWatch</Span></a>
+                    <a href="/02 Stopwatch/stop.html" target="_blank"><Span style="color: whitesmoke ;  font-size: 30px;;">StopWatch</Span></a>
                 </div>
                 
             </div>
@@ -546,7 +395,7 @@ ul li a:hover {
         <div class="section_content">
             <div class="content">
                 <h1 class="title">
-                    <span>About </span><span style="color: #87f83c;">Me</span>
+                    <span>About </span><span style="color:var(--primary-color);">Me</span>
                 </h1>
                 <p class="description">
                     Hey, I'm Abhijeet, a student of BBA-CA. Currently, I'm in Ness Wadia Collage of Commerce, Pune. I had completed my 12th from Army Public School, Pune.
@@ -560,7 +409,7 @@ ul li a:hover {
                 </div>
             </div>
             <div class="image1">
-                <img src="E:\Prodigy Infotech internship\2 Portfolio\landing.png" alt="">
+                <img src="34854.png" alt="">
             </div>
         </div>
     </section>
