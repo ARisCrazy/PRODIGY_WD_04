@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijeet's Portfolio</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+
+        :root {
+           --primary-color:  #44ca67;
+            --primary-color-dark: #149236; 
+            --secondary-color: #3ac89f;
+            --text-dark: rgb(49, 49, 49);
+            --text-light:  grey;
+            --extra-light: #faf5ff;
+            --max-width: 1200px;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000000d0;
+            z-index: 99;
+        }
+
+     
+
+        @media (max-width: 750px) {
+            
+            nav .checkbox {
+                display: block;
+            }
+
+            ul {
+                position: absolute;
+                width: 100%;
+                height: calc(100vh - 85px);
+                left: -100%;
+                top: 85px;
+                background-color: var(--extra-light);
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+            }
+
+            nav #check:checked ~ ul {
+                left: 0;
+            }
+
+            ul li a {
+                font-size: 1.25rem;
+            }
+
+            .section_content {
+                padding: 10rem 1rem 5rem 1rem;
+                text-align: center;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .image {
+                grid-area: 1/1/2/2;
+            }
+
+            .action__btns {
+                margin: auto;
+            }
+        }
+
+.nav_content {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo a{
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: .3s;
+}
+
+nav .logo a:hover{
+    color: var(--primary-color-dark);
+}
+
+nav .checkbox{
+    display: none;
+}
+
+nav input{
+    display: none;
+}
+
+nav .checkbox i{
+    font-size: 32px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+ul {
+  
+  display:flex;
+  position: absolute;
+  top: 50%;
+  right:10%;
+  transform: translate(-0%, -50%);
+}
+
+ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+ul li a {
+  position: relative; 
+  display: block;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px; 
+  background: var(--primary-color-dark);
+  border-radius: 20px; 
+  font-size: 20px; 
+  color: white;
+  transition: .5s;
+}
+
+ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+ul li:last-child a {
+  border-right: none;
+}
+
+ul li a:hover {
+  color: var(--primary-color-dark);
+  box-shadow: 0 0 5px var(--primary-color-dark);
+  text-shadow: 0 0 5px var(--primary-color-dark);
+}
+
+ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; 
+  background: greenyellow;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px greenyellow;
+}
+
+ul li a:hover {
+  color: var(--secondary-color);
+  box-shadow: 0 0 5px var(--primary-color-dark);
+  text-shadow: 0 0 5px var(--primary-color-dark);
+}
+
+  .section{
+    background-color: var(--extra-light);
+}
+
+.section_content{
+    max-height: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    margin-top: 2.5%;
+    padding: 120px 15px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.description input{
+  max-height: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  margin-top: 5%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.subtitle {
+    letter-spacing: 2px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+}
+
+.title span {
+    font-weight: 600;
+  }
+
+.description{
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.action_btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .action_btns button {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 1rem 2rem;
+    outline: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .hire_me {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+  }
+  
+  .hire_me:hover {
+    background-color: #ffffff;
+    background-position: 10% 100%;
+    color: var(--primary-color);
+  }
+  
+  .portfolio {
+    color: var(--primary-color);
+    
+  }
+  
+  .portfolio:hover {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+  }
+  
+  .image,
+  .image1 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .image img,
+  .image1 img {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+
+@media (width < 750px) {
+    nav .checkbox {
+      display: block;
+    }
+  
+    ul {
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 85px);
+      left: -100%;
+      top: 85px;
+      background-color: var(--extra-light);
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+    }
+  
+    nav #check:checked ~ ul {
+      left: 0;
+    }
+  
+    ul li a {
+      font-size: 1.25rem;
+    }
+
+    .section_content {
+        padding: 10rem 1rem 5rem 1rem;
+        text-align: center;
+        grid-template-columns: repeat(1, 1fr);
+      }
+    
+      .image {
+        grid-area: 1/1/2/2;
+      }
+    
+      .action__btns {
+        margin: auto;
+      }
+    }
+
+.Contact_title{
+      text-align: center;
+}
+
+.contact h2{
+  margin-top: -1rem;
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+}
+
+.contact form{
+  height: 100%;
+  max-width: 70rem;
+  margin: 1rem auto;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.contact form .input_box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact form .input_box input,
+.contact form textarea{
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  background: #ffffff;
+  border-radius: .8rem;
+  margin: .7rem 0;
+  box-shadow: 0 .1rem .5rem var(--text-light);
+  border: none;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact form .input_box input:focus,
+.contact form textarea:focus {
+  box-shadow: 0px 0px 2px 2px var(--primary-color-dark);
+}
+
+.contact form .input_box input{
+  width: 49%;
+}
+
+.contact form textarea{
+  resize: none;
+}
+
+.contact form .action_btns button{
+  margin-top: 30px;
+  margin-bottom: -20px;
+  transition: .3s ease;
+}
+
+.contact form .action_btns button:hover{
+  background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+.service_links {
+  width: var(--max-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;  
+  margin: auto;
+    margin-top: .5%;
+    padding: 120px 15px;
+}
+
+.content .heading{
+  text-align: center;
+  font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.text{
+  color: rebeccapurple;
+}
+
+.box {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: 45px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--text-light);
+}
+
+.box img {
+
+  max-width: 150%;
+  max-height: 100%;
+  object-fit:contain;
+  border-radius: 20px;
+  transition: transform .5s;
+}
+
+.box img:hover{
+  transform: scale(1.1);
+}
+
+.box .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.box a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
+#services {
+  background-color: var(--extra-light);
+}
+
+    </style>
+</head>
+<body>
+  <nav>
+        <div class="nav_content">
+            <div class="logo">
+                <a href="#">Abhijeet</a>
+            </div>
+            <label for="check" class="checkbox">
+                <i class="ri-menu-line"></i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home">
+        <div class="section_content">
+            <div class="content">
+                <p class="subtitle">HELLO</p>
+                <h1 class="title">
+                    I'm <span>Abhijeet <br>a </span>Web Developer
+                </h1>
+                <p class="description">
+                  Hello there! I'm Abhijeet, a web developer enthusiastic about crafting visually appealing, responsive, 
+                  and user-friendly websites. I've gained experience through diverse web projects, showcasing my skills in the field.
+                </p>
+                <div class="action_btns">
+                    <button class="hire_me">Hire Me</button>
+                    <button class="portfolio">Resume</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="PicsArt_10-31-10.54.58.jpg" alt="">
+            </div>
+        </div>
+    </section> <br> <br>
+
+    <section id="project">
+        <div class="section_content">
+            <div class="content">
+        <h2 class="heading">My <span style="color: #666363;">Projects!</span></h2>
+        <div class="service_links">
+            <div class="box">
+                <img src="landing.png" alt="">
+                <div class="text">
+                    <a href="/01 landing/index.html" target="_blank"><Span style="color: var(--primary-color);">Landing Page</Span></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="tictac.png" alt="">
+                <div class="text">
+                    <a href="/03 tictactoe/tictactoe.html" target="_blank">  <Span style="color:var(--primary-color) ;">Tic-Tac-Toe</Span></a>
+                </div>
+            </div><div class="box">
+                <img src="stopwatch.png" alt="">
+                <div class="text">
+                    <a href="/02 Stopwatch/stop.html" target="_blank"><Span style="color:var(--primary-color) ;">StopWatch</Span></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <section id="about">
+        <div class="section_content">
+            <div class="content">
+                <h1 class="title">
+                    <span>About </span><span style="color: #87f83c;">Me</span>
+                </h1>
+                <p class="description">
+                    Hey, I'm Abhijeet, a student of BBA-CA. Currently, I'm in Ness Wadia Collage of Commerce, Pune. I had completed my 12th from Army Public School, Pune.
+                    <br><br>
+                    I've had the opportunity to contribute to remarkable and imaginative projects. My philosophy centers on crafting websites that not only boast aesthetic appeal but also deliver functionality and user-friendliness. I am dedicated to creating web experiences that are effortless to navigate, ensuring a seamless and enjoyable interaction for users.<br><br>
+                    In my free time, I enjoy learning new technologies like Video Editing, 3D, Graphics and more. I enjoy playing PC Games.<br><br>
+                </p>
+                <div class="action_btns">
+                    <button class="hire_me">Hire Me</button>
+                    
+                </div>
+            </div>
+            <div class="image1">
+                <img src="E:\Prodigy Infotech internship\2 Portfolio\landing.png" alt="">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
