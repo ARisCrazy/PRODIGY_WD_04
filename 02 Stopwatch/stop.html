@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Watch</title>
+  <style>
+    body {
+      background-image: url('gears.jpg');
+      background-size:auto;
+      font-family: verdana;
+      color:#ffffff;
+      text-align: center;
+      margin: 120px;
+    }
+
+    .time-box {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      background-color: #333;
+      border-radius: 5px;
+      font-size: 1.5em;
+    }
+
+    #milliseconds {
+      font-size: 0.8em;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .control-button {
+      background-color: #0099ff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .control-button:hover {
+      background-color: #006db6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stop Watch</h1>
+
+  <div id="hours" class="time-box">00</div>
+  <div id="minutes" class="time-box">00</div>
+  <div id="seconds" class="time-box">00</div>
+  <div id="milliseconds" class="time-box">.000</div>
+
+  <div class="button-container">
+    <button class="control-button" onclick="startStop()">Start/Stop</button>
+    <button class="control-button" onclick="reset()">Reset</button>
+    <button class="control-button" onclick="lap()">Lap</button>
+  </div>
+
+  <ul id="lapList"></ul>
+  
+<script>
+  let isRunning = false;
+  let lapCount = 1;
+  let interval;
+  let startTime;
+  let elapsedTime = 0;
+
+  function startStop() {
+    if (isRunning) {
+      clearInterval(interval);
+      isRunning = false;
+    } else {
+      startTime = Date.now() - elapsedTime;
+      interval = setInterval(updateTime, 10);
+      isRunning = true;
+    }
+  }
+
+  function updateTime() {
+    const currentTime = Date.now();
+    elapsedTime = currentTime - startTime;
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    const formattedTime = formatTime(elapsedTime);
+    document.getElementById('hours').innerHTML = formattedTime.hours;
+    document.getElementById('minutes').innerHTML = formattedTime.minutes;
+    document.getElementById('seconds').innerHTML = formattedTime.seconds;
+    document.getElementById('milliseconds').innerHTML = formattedTime.milliseconds;
+  }
+
+  function reset() {
+    clearInterval(interval);
+    isRunning = false;
+    elapsedTime = 0;
+    updateDisplay();
+    lapCount = 1;
+    document.getElementById('lapList').innerHTML = '';
+  }
+
+  function lap() {
+    if (isRunning) {
+      const lapTime = elapsedTime;
+      const formattedLapTime = formatTime(lapTime);
+      const lapItem = document.createElement('li');
+      lapItem.innerHTML = `<strong>Lap ${lapCount}:</strong> ${formattedLapTime.hours}:${formattedLapTime.minutes}:${formattedLapTime.seconds}.${formattedLapTime.milliseconds}`;
+      document.getElementById('lapList').appendChild(lapItem);
+      lapCount++;
+    }
+  }
+
+  function formatTime(milliseconds) {
+    const seconds = Math.floor(milliseconds / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+
+    const formattedHours = pad(hours);
+    const formattedMinutes = pad(minutes % 60);
+    const formattedSeconds = pad(seconds % 60);
+    const formattedMilliseconds = pad(milliseconds % 1000, 3);
+
+    return {
+      hours: formattedHours,
+      minutes: formattedMinutes,
+      seconds: formattedSeconds,
+      milliseconds: formattedMilliseconds
+    };
+  }
+
+  function pad(value, length = 2) {
+    return String(value).padStart(length, '0');
+  }
+</script>
+
+</body>
+</html>
